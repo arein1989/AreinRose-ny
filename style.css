@@ -563,24 +563,19 @@ h3.my-profession{
 }
 
 /*kontakt*/
-.containers video {
-    object-fit: cover;
-    width: 100vw;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+
 .containers{
+    
     min-height: 100vh;
     width: 100%;
+    display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     padding: 2rem;
+    display: flex;
     opacity: unset;
   }
- 
   
   .container p{
     font-size: 16px;
@@ -589,9 +584,10 @@ h3.my-profession{
   
   .form{
     width: 85%;
-    max-width: 600px;
+    max-width: 800px;
     align-items: center;
     justify-content: center;
+    
     background-color: #fff;
     border-radius: 10px;
     border: 2px solid #ffc0cb;
