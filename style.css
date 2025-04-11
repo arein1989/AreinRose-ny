@@ -230,6 +230,102 @@ ul{
 .aside .nav li a i{
     margin-right: 15px;
 }
+/* Burger menu styles */
+.aside .nav-toggler {
+    position: fixed;
+    left: 15px;
+    top: 15px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-black-100);
+    border: 2px solid var(--skin-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Tilføj media query for at sikre den kun vises på mobile */
+@media (min-width: 992px) {
+    .aside .nav-toggler {
+        display: none;
+    }
+}
+
+.aside .nav-toggler span {
+    height: 2px;
+    width: 24px;
+    background: var(--skin-color);
+    position: relative;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.aside .nav-toggler span::before,
+.aside .nav-toggler span::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: var(--skin-color);
+    transition: all 0.3s ease;
+}
+
+.aside .nav-toggler span::before {
+    top: -8px;
+}
+
+.aside .nav-toggler span::after {
+    top: 8px;
+}
+
+.aside .nav-toggler.active span {
+    background: transparent;
+}
+
+.aside .nav-toggler.active span::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.aside .nav-toggler.active span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* Mobile menu styles */
+@media (max-width: 991px) {
+    .aside {
+        left: -270px;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .aside.open {
+        left: 0;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    
+    .main-content {
+        position: relative;
+    }
+    
+    .aside.open + .main-content::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+}
+
 /*home*/
 .home{
     min-height: 100vh;
@@ -332,6 +428,7 @@ h3.my-profession{
     font-size: 16px;
     line-height: 25px;
     color: var(--text-black-700);
+    margin-left: 20px;
 }
 .about .about-content .personal-info{
     flex: 0 0 60%;
@@ -344,11 +441,16 @@ h3.my-profession{
     max-width: 40%;
     margin-top: 40px;
 }
+
+
 .about .about-content .education, 
 .about .about-content .experience{
     flex: 0 0 50%;
     max-width: 50%;
     margin-top: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 .about .about-content .education h3, 
 .about .about-content .experience h3{
@@ -364,7 +466,9 @@ h3.my-profession{
 .about .about-content .timeline-box{
     flex: 0 0 100%;
     max-width: 100%;
+    height: 100%;
 }
+
 .about .about-content .timeline{
     background-color: var(--bg-black-100);
     padding: 30px 15px;
@@ -372,6 +476,8 @@ h3.my-profession{
     border-radius: 10px;
     width: 100%;
     position: relative;
+    min-height: 500px; /* Juster denne værdi efter behov */
+    height: 100%;
 }
 .about .about-content .timeline .timeline-item{
     position: relative;
@@ -565,7 +671,9 @@ h3.my-profession{
 /*kontakt*/
 
 .containers{
-    
+    background: url(images/Kontakt2.png);
+    background-size: cover;
+    background-position: center;
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -573,7 +681,6 @@ h3.my-profession{
     justify-content: center;
     overflow: hidden;
     padding: 2rem;
-    display: flex;
     opacity: unset;
   }
   
@@ -864,12 +971,45 @@ h3.my-profession{
         flex: 0 0 100%;
         max-width: 100%;
     }
-    .home .home-img{
-        display: none;
+    .home .home-info {
+        flex: 0 0 100%;
+        max-width: 100%;
+        order: 1; /* Sørger for at teksten kommer først */
+        text-align: start;
+    }
+    
+    .home .home-img {
+        flex: 0 0 100%;
+        max-width: 350px;
+        order: 2; /* Sørger for at billedet kommer efter */
+        margin-top: 30px;
+        
+    }
+    .home .home-img img {
+        height: auto;
+        max-width: 350px;
     }
     .about .video-container video{
         flex: 0 0 100%;
         margin-left: 100px ;
+    }
+    .aside.open + .main-content::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .aside.open + .main-content::after {
+        opacity: 1;
+        pointer-events: auto;
     }
 }
 @media(max-width: 767px){

@@ -1,3 +1,62 @@
+// brugermenu
+
+// Opdateret burger menu funktionalitet
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggler = document.querySelector('.nav-toggler');
+    const aside = document.querySelector('.aside');
+    const navLinks = document.querySelectorAll('.nav li a');
+    
+    // Vis burger menu på mobile
+    function checkScreenSize() {
+        if (window.innerWidth <= 991) {
+            navToggler.style.display = 'flex';
+        } else {
+            navToggler.style.display = 'none';
+            aside.classList.remove('open');
+        }
+    }
+    
+    // Kør ved load og resize
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    // Tilføj event listener til burgermenuen
+    navToggler.addEventListener('click', function(e) {
+        e.stopPropagation();
+        aside.classList.toggle('open');
+        navToggler.classList.toggle('active');
+    });
+    
+    // Luk menu når der klikkes på et link
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 991) {
+                aside.classList.remove('open');
+                navToggler.classList.remove('active');
+            }
+        });
+    });
+    
+    // Luk menu når der klikkes udenfor
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 991 && 
+            aside.classList.contains('open') && 
+            !aside.contains(e.target) && 
+            e.target !== navToggler) {
+            aside.classList.remove('open');
+            navToggler.classList.remove('active');
+        }
+    });
+    
+    // Forhindrer at klik på selve menuen lukker den
+    aside.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+});
+
+
+
+
 /* ==== typing animation ====*/ 
 var typed = new Typed('.typing', {
     strings: ['Web Developer', 'Web Designer', 'Grafisk Designer'],
@@ -40,13 +99,3 @@ window.addEventListener('click', (event) => {
     }
 });
 
-// Tilføj til din script.js
-document.addEventListener('DOMContentLoaded', function() {
-    const video = document.getElementById('bg-video');
-    video.play().catch(e => {
-        // Fallback hvis autoplay ikke virker
-        const videoContainer = document.querySelector('.video-background');
-        videoContainer.style.background = 'url(Images/kontakt-fallback.jpg) center/cover no-repeat';
-        video.style.display = 'none';
-    });
-});
