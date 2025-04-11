@@ -463,6 +463,9 @@ h3.my-profession{
     color: #ffffff;
     font-size: 25px;
 } 
+.fa fa-paint-brush{
+    background-color: #3C0912;
+}
 .services .service-item .service-item-inner h4{
     font-size: 18px;
     margin-bottom: 15px;
