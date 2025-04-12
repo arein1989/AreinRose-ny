@@ -87,7 +87,7 @@ ul{
     margin-right: -15px;
     position: relative;
 }
-.btn{
+.btn, .btn-about{
     font-size: 16px;
     font-weight: 500;
     padding: 15px 65px;
@@ -99,14 +99,14 @@ ul{
     background: var(--bg-black-900);
     transition: all 0.3s ease;
 }
-.btn:hover{
+.btn:hover, .btn-about:hover, .btns:hover{
     transform: scale(1.05);
     background: var(--skin-color);
 }
-.btn-about  {
+.btns  {
     font-size: 16px;
     font-weight: 500;
-    padding: 15px 65px;
+    padding: 15px 45px;
     color: black;
     border-radius: 40px;
     display: inline-block;
@@ -115,10 +115,6 @@ ul{
     background: var(--bg-black-900);
     transition: all 0.3s ease;
 } 
-.btn-about:hover{
-    transform: scale(1.05);
-    background: var(--skin-color);
-}
 .shadow-dark{
     box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
 }
@@ -237,7 +233,7 @@ ul{
     top: 15px;
     width: 45px;
     height: 45px;
-    display: flex;
+    display: none; /* Skjul som standard */
     align-items: center;
     justify-content: center;
     background: var(--bg-black-100);
@@ -248,7 +244,6 @@ ul{
     z-index: 1000;
     transition: all 0.3s ease;
 }
-
 /* Tilføj media query for at sikre den kun vises på mobile */
 @media (min-width: 992px) {
     .aside .nav-toggler {
@@ -297,8 +292,8 @@ ul{
     transform: rotate(-45deg);
 }
 
-/* Mobile menu styles */
-@media (max-width: 991px) {
+/* Opdater media queries for mellemstore skærme */
+@media (max-width: 1199px) {
     .aside {
         left: -270px;
         transition: all 0.3s ease;
@@ -311,7 +306,12 @@ ul{
     }
     
     .main-content {
+        padding-left: 0;
         position: relative;
+    }
+    
+    .aside .nav-toggler {
+        display: flex; /* Vis burgermenu */
     }
     
     .aside.open + .main-content::after {
@@ -966,23 +966,21 @@ h3.my-profession{
         flex: 0 0 50%;
         max-width: 50%;
     }
-    .about .video-container,
-    .home .home-info{
+    .about .video-container{
         flex: 0 0 100%;
         max-width: 100%;
     }
     .home .home-info {
-        flex: 0 0 100%;
-        max-width: 100%;
-        order: 1; /* Sørger for at teksten kommer først */
-        text-align: start;
+        flex: 0 0 60%;
+        max-width: 60%;
+        order: 1; /* Sørger for at teksten kommer før billedet */
     }
     
     .home .home-img {
-        flex: 0 0 100%;
-        max-width: 350px;
+        flex: 0 0 35%;
+        max-width: 35%;
         order: 2; /* Sørger for at billedet kommer efter */
-        margin-top: 30px;
+        align-items: center;
         
     }
     .home .home-img img {
@@ -1029,5 +1027,28 @@ h3.my-profession{
         flex: 0 0 100%;
         margin-left: 40px ;
 
+    }
+}
+
+/* For mindre skærme - mobile view */
+@media(max-width: 767px) {
+    .home .row {
+        flex-direction: column; /* Stak elementer lodret */
+    }
+    
+    .home .home-info,
+    .home .home-img {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .home .home-img {
+        margin-top: 60px; /* Lidt luft mellem tekst og billede */
+        order: 2; /* Sikrer at billedet kommer efter teksten */
+    }
+    
+    .home .home-img img {
+        max-width: 250px; /* Mindre billede på mobile */
+        height: auto;
     }
 }

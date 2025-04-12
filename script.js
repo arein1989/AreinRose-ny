@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Vis burger menu på mobile
     function checkScreenSize() {
-        if (window.innerWidth <= 991) {
+        if (window.innerWidth <= 1199) {
             navToggler.style.display = 'flex';
         } else {
             navToggler.style.display = 'none';
