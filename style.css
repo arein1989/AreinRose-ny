@@ -671,7 +671,7 @@ h3.my-profession{
 /*kontakt*/
 
 .containers{
-    background: url(images/Kontakt2.png);
+    background: url(Images/kontakt.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     min-height: 100vh;
