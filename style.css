@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
 :root{
-    --bg-black-900:#fff;
-    --bg-black-100:#ffffff;
-    --bg-black-50:#e8dfec;
-    --text-black-900:#302e4d;
-    --text-black-700:#504e70;
+    --bg-black-900:#2A1A3A;
+    --bg-black-100:#e0e0e0;
+    --bg-black-50:#3C0912;
+    --text-black-900:#e0e0e0;
+    --text-black-700:#f5f5f5;
+    --text-black-500:#000;
 }
 body{
     margin: 0;
     padding: 0;
     line-height: 1.5;
     font-size: 16px;
-    font-family: Clicker ;
+    font-family: Clicker ;;
 }
 *{
     padding: 0;
@@ -20,6 +21,7 @@ body{
     outline: none;
     text-decoration: none;
     box-sizing: border-box;
+   
 }
 ::before, ::after{
     box-sizing: border-box;
@@ -91,7 +93,7 @@ ul{
     font-size: 16px;
     font-weight: 500;
     padding: 15px 65px;
-    color: black;
+    color: var(--text-black-700);
     border-radius: 40px;
     display: inline-block;
     white-space: nowrap;
@@ -107,12 +109,12 @@ ul{
     font-size: 16px;
     font-weight: 500;
     padding: 15px 45px;
-    color: black;
+    color: var(--text-black-700);
     border-radius: 40px;
     display: inline-block;
     white-space: nowrap;
     border: 2px solid var(--skin-color);
-    background: var(--bg-black-900);
+    background: var(--bg-black-100);
     transition: all 0.3s ease;
 } 
 .shadow-dark{
@@ -121,7 +123,7 @@ ul{
 /* aside */
 .aside{
     width: 270px;
-    background: var(--bg-black-100);
+    background: var(--bg-black-900);
     position: fixed;
     left: 0;
     top: 0;
@@ -214,8 +216,8 @@ ul{
     font-weight: 600;
     display: block;
     padding: 5px 15px;
-    border-bottom: 1px solid var(--bg-black-50);
-    color: #3c0912;
+    border-bottom: 1px solid var(--skin-color);
+    color: var(--text-black-900);
 }
 .aside .nav li a.active{
     color: var(--skin-color);
@@ -236,9 +238,9 @@ ul{
     display: none; /* Skjul som standard */
     align-items: center;
     justify-content: center;
-    background: var(--bg-black-100);
+    background: var(--bg-black-900);
     border: 2px solid var(--skin-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(72, 71, 71, 0.1);
     border-radius: 5px;
     cursor: pointer;
     z-index: 1000;
@@ -353,6 +355,9 @@ h3.my-profession{
 .typing{
     color: var(--skin-color);
 }
+#forside p{
+   color: var(--text-black-700);
+}
 .home-info p{
     margin-bottom: 70px;
     font-size: 20px;
@@ -372,7 +377,7 @@ h3.my-profession{
     border-bottom: 10px solid var(--skin-color);
     border-right: 10px solid var(--skin-color);
     right: -5px;
-    bottom: -10px;
+    bottom: -65px;
 }
 .home .home-img::before{
     content: '';
@@ -381,8 +386,8 @@ h3.my-profession{
     height: 80px;
     border-top: 10px solid var(--skin-color);
     border-left: 10px solid var(--skin-color);
-    left: -5px;
-    top: -10px;
+    left: 5px;
+    top: 60px;
 }
 .home .home-img img{
     height: 250px;
@@ -405,12 +410,14 @@ h3.my-profession{
     max-width:75%;
     margin-left: 110px;
     margin-bottom: 55px;
-    border: 2px solid #ffc0cb;
+    border: 1px solid #ffc0cb;
     box-shadow: 0 .5rem 1rem  #f0d8dc;
     border-radius: .5rem;
     object-fit: cover;
   }  
-
+.row h2{
+    color: var(--text-black-900);
+}
 .about .about-content .about-text{
     flex: 0 0 100%;
     max-width: 100%;
@@ -456,12 +463,13 @@ h3.my-profession{
 .about .about-content .experience h3{
     margin-bottom: 30px;
     font-weight: 700;
+    color: var(--text-black-900);
 }
 .about .about-content h3.title{
     font-size: 24px;
     margin-bottom: 30px;
     font-weight: 700;
-    color: var(--text-black-900);
+    color: var(--text-black-500);
 }
 .about .about-content .timeline-box{
     flex: 0 0 100%;
@@ -472,7 +480,6 @@ h3.my-profession{
 .about .about-content .timeline{
     background-color: var(--bg-black-100);
     padding: 30px 15px;
-    border: 1px solid var(--bg-black-50);
     border-radius: 10px;
     width: 100%;
     position: relative;
@@ -482,7 +489,7 @@ h3.my-profession{
 .about .about-content .timeline .timeline-item{
     position: relative;
     padding-left: 37px;
-    margin-bottom: 15px;
+    margin-bottom: 15px; 
 }
 .about .about-content .timeline .timeline-item:last-child{
     padding-bottom: 0;
@@ -495,6 +502,9 @@ h3.my-profession{
     left: 7px;
     top: 0;
     background-color: var(--skin-color);
+}
+.about .about-content .timeline .timeline-item h3{
+    color: var(--text-black-500);
 }
 .about .about-content .timeline .circle-dot{
     position: absolute;
@@ -513,19 +523,20 @@ h3.my-profession{
 }
 .about .about-content .timeline-date .fa{
     margin-right: 5px;
+    color: var(--text-black-500);
 }
 .about .about-content .timeline-title{
     font-weight: 700;
     font-size: 18px;
     margin-bottom: 10px;
     text-transform: capitalize;
-    color: var(--text-black-900);
+    color: var(--text-black-500);
 }
 .about .about-content .timeline .timeline-text{
     font-size: 16px;
     line-height: 25px;
     text-align: justify;
-    color: var(--text-black-700);
+    color: var(--text-black-500);
 }
 /*services*/
 .services .container{
@@ -566,20 +577,20 @@ h3.my-profession{
     background: var(--hover-color);
 }
 .services .service-item .service-item-inner:hover .icon .fa{
-    color: #ffffff;
+    color: var(--text-black-700);
     font-size: 25px;
 } 
 .services .service-item .service-item-inner h4{
     font-size: 18px;
     margin-bottom: 15px;
     font-weight: 700;
-    color: var(--text-black-900);
+    color: var(--text-black-500);
     text-transform: capitalize;
 }
 .services .service-item .service-item-inner p{
     font-size: 16px;
     line-height: 25px;
-    color: var(--text-black-700);
+    color: var(--text-black-500);
 }
 /*projekter*/
 .projekt {
@@ -686,7 +697,7 @@ h3.my-profession{
   
   .container p{
     font-size: 16px;
-    color: #000;
+    color: var(--text-black-500);
   }
   
   .form{
@@ -695,7 +706,7 @@ h3.my-profession{
     align-items: center;
     justify-content: center;
     
-    background-color: #fff;
+    background-color: var(--bg-black-100);
     border-radius: 10px;
     border: 2px solid #ffc0cb;
     box-shadow: 0 0 20px #000;
@@ -705,7 +716,7 @@ h3.my-profession{
   }
   
   .contact-form{
-    background-color: #fff;
+    background-color: var(--bg-black-100);
     position: relative;
     border: 2px solid #ffc0cb;
     box-shadow: 0 0 20px #000;
@@ -747,7 +758,7 @@ h3.my-profession{
   }
   
   .title{
-    color: #000;
+    color: var(--text-black-500);
     font-weight: 600;
     font-size: 20px;
     margin-bottom: 0.7rem;
@@ -764,7 +775,7 @@ h3.my-profession{
     border: 2px solid #ffc0cb;
     background: none;
     padding: 0.6rem 1.2rem;
-    color: #000;
+    color: var(--text-black-500);
     font-weight: 500;
     font-size: 0.95rem;
     letter-spacing: 1px;
@@ -790,7 +801,7 @@ h3.my-profession{
     pointer-events: none;
     z-index: 10;
     transition: 0.3s;
-    color: #000;
+    color: var(--text-black-500);
   }
   
   .input-field .texterea label{
@@ -803,7 +814,7 @@ h3.my-profession{
   }
   
   .contact-info .title{
-    color: #000;
+    color: var(--text-black-500);
     font-size: 20px;
   }
   
@@ -818,7 +829,7 @@ h3.my-profession{
   }
   .information a{
     text-decoration: none;
-    color: #000;
+    color: var(--text-black-500);
     font-size: 18px;
   }
   

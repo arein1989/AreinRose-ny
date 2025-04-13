@@ -27,7 +27,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v2
         with:
-            path: BS/
+            path: Arein/
  
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
