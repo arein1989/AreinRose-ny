@@ -6,7 +6,7 @@
     --bg-black-50:#3C0912;
     --text-black-900:#e0e0e0;
     --text-black-700:#f5f5f5;
-    --text-black-500:#000;
+    --text-black-500:#2A1A3A;
 }
 body{
     margin: 0;
@@ -109,7 +109,7 @@ ul{
     font-size: 16px;
     font-weight: 500;
     padding: 15px 45px;
-    color: var(--text-black-700);
+    color: var(--text-black-500);
     border-radius: 40px;
     display: inline-block;
     white-space: nowrap;
